@@ -1,0 +1,28 @@
+.line {
+    position: absolute;
+    top: 50px;
+}
+
+.line__line {
+    height: 2px;
+    background-color: black;
+    width: 100px;
+}
+
+.line__first-dot, .line__second-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.line__first-dot {
+    top: -2.5px;
+    left: 0px;
+}
+
+.line__second-dot {
+    top: -2.5px;
+    left: 100%;
+}

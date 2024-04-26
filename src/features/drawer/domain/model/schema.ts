@@ -5,5 +5,6 @@ export type SchemaId = string;
 
 export interface Schema {
   id: SchemaId;
+  name: string;
   figures: (Line | Ellipse)[];
 }

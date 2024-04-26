@@ -1,16 +1,34 @@
-import { useEffect, useState } from "react";
-import { getSchemaUseCase } from "features/drawer/infra/factory/usecases";
 import { DrawerView } from "./drawerView";
-import { Schema } from "features/drawer/domain/model";
+import { useSchema } from "../../hooks/useSchema";
 
 const withDrawer = (View: any) => () => {
-  const [schema, setSchema] = useState<Schema | null>(null);
+  const { schema, updateSchemaInfo, updateFigure } = useSchema();
 
-  useEffect(() => {
-    getSchemaUseCase().then((schema) => setSchema(schema));
-  }, []);
-
-  return <View schema={schema} />;
+  return <View schema={schema} updateSchemaInfo={updateSchemaInfo} updateFigure={updateFigure} />;
 };
 
 export const Drawer = withDrawer(DrawerView);
+
+/**
+ * figure types: line, circle, square, custom
+ * 
+ * update line:
+ *    move one of the ends
+ *    move center
+ * 
+ * onMouseMove(event, dot1) {
+ *    controller.moveFigure(state.figure.type, movementType, state.figure.type)
+ * }
+ * 
+ * onMouseUp() {
+ *    updateFigure(state.figure.type, movementType, state.figure.type)
+ * }
+ * 
+ * update circle:
+ *    move center
+ *    change radius
+ * 
+ * square
+ *    move center
+ *    move one of the ends to change size
+ */
