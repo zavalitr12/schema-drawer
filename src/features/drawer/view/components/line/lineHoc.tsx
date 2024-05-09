@@ -1,7 +1,11 @@
-import { LineView } from "./lineView"
+import { FC } from "react";
+import { LineViewPropsType } from "../../common/types";
+import { LineView } from "./lineView";
 
-const withLine = (View: any) => () => {
-    return <View />
-}
+const withLine =
+  (View: FC<LineViewPropsType>) =>
+  ({ secondPoint, firstPoint }: LineViewPropsType) => {
+    return <View {...{ secondPoint, firstPoint }} />;
+  };
 
-export const Line = withLine(LineView)
+export const Line = withLine(LineView);
