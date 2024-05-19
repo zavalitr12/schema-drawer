@@ -1,34 +1,14 @@
 import { DrawerView } from "./drawerView";
-import { useSchema } from "../../hooks/useSchema";
+import { FC, useContext } from "react";
+import { SchemaContext } from "features/drawer/view/providers/schemaProvider";
+import { DrawerHocPropsType, DrawerViewPropsType } from "./types";
 
-const withDrawer = (View: any) => () => {
-  const { schema, updateSchemaInfo, updateFigure } = useSchema();
+const withDrawer =
+  (View: FC<DrawerViewPropsType>): FC<DrawerHocPropsType> =>
+  (props) => {
+    const { schema } = useContext(SchemaContext);
 
-  return <View schema={schema} updateSchemaInfo={updateSchemaInfo} updateFigure={updateFigure} />;
-};
+    return <View schema={schema} {...props} />;
+  };
 
 export const Drawer = withDrawer(DrawerView);
-
-/**
- * figure types: line, circle, square, custom
- * 
- * update line:
- *    move one of the ends
- *    move center
- * 
- * onMouseMove(event, dot1) {
- *    controller.moveFigure(state.figure.type, movementType, state.figure.type)
- * }
- * 
- * onMouseUp() {
- *    updateFigure(state.figure.type, movementType, state.figure.type)
- * }
- * 
- * update circle:
- *    move center
- *    change radius
- * 
- * square
- *    move center
- *    move one of the ends to change size
- */

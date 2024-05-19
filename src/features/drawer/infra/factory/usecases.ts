@@ -8,3 +8,5 @@ export const getSchemaUseCase = buildGetSchemaUseCase(
   createSchemaLocalRepo,
   getSchemaRemoteRepo
 );
+
+export const updateSchemaUseCase = (schema: any) => new Promise<any>(() => {});
