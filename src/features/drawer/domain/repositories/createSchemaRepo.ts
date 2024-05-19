@@ -1,5 +1,5 @@
-import { Schema, SchemaId } from "../model";
+import { Schema } from "../model/schema";
 
 export type CreateSchemaRemoteRepo = (
   schema: Omit<Schema, "id">
-) => Promise<SchemaId>;
+) => Promise<string>;

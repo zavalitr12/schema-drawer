@@ -1,3 +1,3 @@
-import { Schema, SchemaId } from "../model";
+import { Schema } from "../model/schema";
 
-export type GetSchemaRemoteRepo = (schemaId: SchemaId) => Promise<Schema>;
+export type GetSchemaRemoteRepo = (schemaId: string) => Promise<Schema>;

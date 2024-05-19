@@ -1,4 +1,4 @@
-import { Schema, SchemaId } from "../model";
+import { Schema } from "../model/schema";
 import {
   GetSchemaLocalRepo,
   CreateSchemaLocalRepo,
@@ -9,7 +9,7 @@ export type GetSchemaUseCase = (
   getSchemaLocalRepo: GetSchemaLocalRepo,
   createSchemaLocalRepo: CreateSchemaLocalRepo,
   getSchemaRemoteRepo: GetSchemaRemoteRepo
-) => (schemaId?: SchemaId) => Promise<Schema>;
+) => (schemaId?: string) => Promise<Schema>;
 
 export const buildGetSchemaUseCase: GetSchemaUseCase =
   (getSchemaLocalRepo, createSchemaLocalRepo, getSchemaRemoteRepo) =>

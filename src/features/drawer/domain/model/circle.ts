@@ -2,10 +2,11 @@ import { Action } from "./action";
 import { Coords } from "./coords";
 import { Style } from "./style";
 
-export interface Line {
+export interface Circle {
   id: string;
   style: Style;
-  type: "line";
+  type: "circle";
   actions: Action[];
+  radius: number;
   coords: Coords[];
 }
