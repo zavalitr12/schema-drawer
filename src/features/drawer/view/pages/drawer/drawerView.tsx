@@ -1,10 +1,10 @@
 import "./style.css";
-
 import { ToolsMenu } from "features/drawer/view/components/toolsMenu/toolsMenuHoc";
-import { Rectangle } from "features/drawer/view/components/rectangle/rectangleHoc";
-import { Arrow } from "../../components/arrow/arrowHoc";
+import { FC } from "react";
+import { DrawerViewPropsType } from "./types";
+import { Figure } from "../../components/figure/figureHoc";
 
-export const DrawerView = ({ schema, updateSchemaInfo, updateFigure }: any) => {
+export const DrawerView: FC<DrawerViewPropsType> = ({ schema }) => {
   return (
     schema && (
       <div className="drawer-page">
@@ -14,8 +14,9 @@ export const DrawerView = ({ schema, updateSchemaInfo, updateFigure }: any) => {
         </div>
         <div className="drawer-page__draw-space">
           <svg className="drawer-page__draw-space-svg">
-            <Arrow />
-            <Rectangle />
+            {schema.figures.map((figure) => (
+              <Figure key={figure.id} figure={figure} />
+            ))}
           </svg>
         </div>
         <div className="drawer-page__right-menu">{/* <StyleMenu /> */}</div>

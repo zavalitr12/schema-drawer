@@ -1,9 +1,6 @@
-type PointType = {
+export type PointType = {
   x: number;
   y: number;
 };
 
-export type LineViewPropsType = {
-  firstPoint: PointType;
-  secondPoint: PointType;
-};
+export type PointAliasType = "left" | "right";

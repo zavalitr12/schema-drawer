@@ -1,11 +1,10 @@
 import { FC } from "react";
-import { LineViewPropsType } from "../../common/types";
 import "./style.css";
+import { LineViewPropsType } from "./types";
 
-export const LineView: FC<LineViewPropsType> = ({
-  firstPoint,
-  secondPoint,
-}) => {
+export const LineView: FC<LineViewPropsType> = ({ coords }) => {
+  const firstPoint = coords[0];
+  const secondPoint = coords[1];
   return (
     <g>
       <g>
